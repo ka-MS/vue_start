@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-        // 전역 컴포넌트 -> 이렇게 사용할일은 없다
+        // 전역 컴포넌트 -> 이렇게 사용할일은 많이 없다
         Vue.component('app-header',{
             template:'<h1>머리</h1>'
         });
@@ -28,7 +28,7 @@
         Vue.component('app-content',{
             template:'<div>몸통</div>'
         })
-        // 전역과 지역의 차이 : 하단에 뭐가 등록되는지 알 수 있음 컴포넌트 속성으로 알 수 있음
+        // 전역과 지역의 차이 : 지역은 하단에 뭐가 등록되는지 알 수 있음 컴포넌트 속성으로 알 수 있음
         // 지역컴포넌트는 인스턴스마다 새로 생성해줘야함
         new Vue({
             el:'#app',
@@ -36,7 +36,7 @@
                 // 지역 컴포넌트 등록방식
                 //'키': '값',
                 'app-footer': {
-                    template: '<footer>발</footer>'
+                    template: '<footer>발1</footer>'
                 }
             },
             methods:{
@@ -50,7 +50,7 @@
                 // 지역 컴포넌트 등록방식
                 //'키': '값',
                 'app-footer': {
-                    template: '<footer>발</footer>'
+                    template: '<footer>발2</footer>'
                 }
             },
 
