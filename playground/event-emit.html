@@ -22,10 +22,11 @@
                 passEvent: function () {
                     this.$emit('pass');
                 }
-            }
+            },
+            props: ['propsdata']
         }
         var appContent = {
-            template: '<button v-on:click="addNumber">add</button>',//버튼을 클릭하면 addn을 실행하겠다
+            template: '<button v-on:click="addNumber">add</button>',//버튼을 클릭하면 addNumber 실행하겠다
             methods: {
                 addNumber: function(){
                     this.$emit('increase')
