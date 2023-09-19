@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <!-- props는 상위 컴포넌트의 데이터를 하위 컴포넌트에 전달한다 -->
     <div id="app">
         <!-- <app-header v-bind:프롭스 속성 이름="상위 컴포넌트의 데이터 이름"></app-header> -->
         <app-header v-bind:propsdata="message"></app-header>
@@ -17,6 +18,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
+        const test = 1;
+        test = 3;
+        
         // 카멜케이스
         var appHeader = {
             template: '<h1>{{propsdata}}</h1>',
