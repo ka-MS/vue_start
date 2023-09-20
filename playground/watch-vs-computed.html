@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ num }}
+        <hr>
+        <button v-on:click="fetchUserByNumber">증가</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- watch vs computed -->
+  <script>
+    new Vue({
+        el:'#app',
+        data:{
+            num: 10,
+            str: 'z'
+        },
+        computed:{ // 텍스트를 입력받아서 벨리데이션을 바꾸는  
+            // 신기하게 밑에 펑션안에서 this로 접근한 속성을 인식해서 변화를 반영하는듯하다
+            // changeText절에서는 num,str두가지 속성의 변화에 반응한다.
+            doubleNum: function(){
+                console.log('computed');
+                return this.num*2;
+            },
+            changeText: function(){
+                console.log('text computed');
+                var text = this.str;
+                var number = this.num;
+                return text;
+            },
+            // set: function(newValue) {
+            //     this.str = this.num;
+
+            // }
+        },
+        watch:{ // 무거운 동작 데이터요청같은데 적합
+            num: function(newValue, oldValue){
+                this.fetchUserByNumber(newValue);
+            }
+        },
+        methods: {
+            fetchUserByNumber: function(num){
+                console.log(num)
+            },
+            logText: function(){
+                console.log('changed')
+            }
+        }
+    })
+  </script>
+    
+</body>
+</html>

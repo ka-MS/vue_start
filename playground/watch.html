@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ num }}
+        <hr>
+        <button v-on:click="addNum">증가</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- watch vs computed -->
+  <script>
+    new Vue({
+        el:'#app',
+        data:{
+            num: 0
+        },
+        watch:{
+            num: function(){
+                this.logText();
+            }
+        },
+        methods: {
+            addNum: function(){
+                this.num ++;
+            },
+            logText: function(){
+                console.log('changed')
+            }
+        }
+    })
+  </script>
+    
+</body>
+</html>

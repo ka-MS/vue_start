@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         var appHeader = {
-            template: '<button v-on:click="passEvent">click me</button>',
+            template: '<button v-on:click="passEvent">reset</button>',
             methods: {
                 passEvent: function () {
                     this.$emit('pass');
@@ -42,10 +42,11 @@
             },
             methods: {
                 logText: function(){
+                    this.num = 10;
                     console.log('hi')
                 },
                 addNum: function(){
-                    this.num += 1
+                    this.num ++;
                     console.log(this.num)
                     
                 }
