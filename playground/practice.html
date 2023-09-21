@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="numButton">showNum</button>
+        <router-link to="/footer">footer</router-link>
+
+    </div>
+
+    <!-- vue, axios, router 임포트 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
+
+    <script>
+        var footComponent = {
+            template:'<footer>발1</footer>'
+        }
+
+        Vue.component('footComponent2',{
+            template:'<footer>발1</footer>'
+        })
+
+        var rt = new VueRouter({
+            routes: [
+                {
+                    path: '/footer',
+                    name: 'footer',
+                    // 해당 url에 표시될 컴포넌트
+                    component: footComponent
+                }
+            ]
+            
+        })
+        new Vue({
+            el: '#app', // 뷰 인스턴스가 적용될 범위 지정
+            data: { // 사용될 데이터 객체 지정
+                num: 0,
+                str: ''
+            },
+            router: rt,
+            components:{
+                'app-footer': {
+                    template: '<footer>발1</footer>'
+                }
+            },
+            methods: { // 컴포넌트의 메소드 지정
+                numButton: function(){
+                    console.log(this.num);
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
